@@ -1,8 +1,9 @@
 <?php
 include("includes/connection.php");
- $r=$_GET['room'];
- $ci=$_GET['checkin'];
- $co=$_GET['checkout'];
+ $r=isset($_GET['room']);
+ $ci=isset($_GET['checkin']);
+ $co=isset($_GET['checkout']);
+ 
 ?>
 <!doctype html>
 <html lang="en">
@@ -76,10 +77,10 @@ include("includes/connection.php");
                             if($r<=$num){
 
                         ?>
-                       <!-- <input class="form-control" type="text" name="status"  disabled="disabled" value="Available" title="Status">-->
+                     <!--<input class="form-control " type="text" name="status"  disabled="disabled" value="Room Type" title="Status">-->
                        
-                        <select id="" class="form-control" name="city">
-                            <option selected>Choose available rooms</option>
+                        <select id="" class="form-control" name="room_t" required >
+                            <option selected>Choose Room Type</option>
                             <option>CLASSIC DOUBLE</option>
                             <option>EXECUTIVE DOUBLE</option>
                             <option>CLUB KING</option>
@@ -100,19 +101,19 @@ include("includes/connection.php");
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                         </div>
-                        <input name="name" class="form-control" placeholder="Full name" type="text">
+                        <input name="name" class="form-control" placeholder="Full name" type="text" required>
                     </div> <!-- form-group// -->
                     <div class="form-group input-group col-md-6">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                         </div>
-                        <input name="email" class="form-control" placeholder="Email address" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                        <input name="email" class="form-control" placeholder="Email address" type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                     </div> <!-- form-group// -->
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <select id="" class="form-control" name="city">
-                            <option selected>Choose City...</option>
+                        <select id="" class="form-control" name="city" required>
+                            <option value="">Choose City...</option>
                             <option>San Gwann</option>
                             <option>Paola</option>
                             <option>Swieqi</option>
@@ -121,8 +122,8 @@ include("includes/connection.php");
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <select id="" class="form-control" name="district">
-                            <option selected>Choose District...</option>
+                        <select id="" class="form-control" name="district" required>
+                            <option value="">Choose District...</option>
                             <option>North</option>
                             <option>East</option>
                             <option>West</option>
@@ -134,8 +135,8 @@ include("includes/connection.php");
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <select id="" class="form-control" name="state">
-                            <option selected>Choose State...</option>
+                        <select id="" class="form-control" name="state" required >
+                            <option values="">Choose State...</option>
                             <option>Malta</option>
                             <option>Gozo</option>
                             <option>Valletta</option>
@@ -185,8 +186,10 @@ include("includes/connection.php");
         $checkin = $_POST['checkin'];
         $checkout = $_POST['checkout'];
         $m = $_POST['m'];
+        $room_type = $_POST['room_t'];
 
-        if(mysqli_query($connect,"insert into form(name,city,district,email,state,checkin,checkout,m,idno) value('$name', '$city', '$district', '$state', '$email', '$checkin', '$checkout', '$m', '$idno')"))
+
+        if(mysqli_query($connect,"insert into form(name,city,district,email,state,checkin,checkout,m,room_type,idno) value('$name', '$city', '$district', '$state', '$email', '$checkin', '$checkout', '$m', '$room_type','$idno')"))
         {
             mysqli_query($connect, "update room set status ='Booked' where rno=$rno");
             echo '<script type="text/javascript"> window.location="f1.php";</script>';
