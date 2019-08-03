@@ -78,7 +78,8 @@ include("includes/connection.php");
 
                         ?>
                      <!--<input class="form-control " type="text" name="status"  disabled="disabled" value="Room Type" title="Status">-->
-                       
+                      <!--Room type selections for the online registrations-->
+                      
                         <select id="" class="form-control" name="room_t" required >
                             <option selected>Choose Room Type</option>
                             <option>CLASSIC DOUBLE</option>
