@@ -43,7 +43,57 @@
     <div class="card bg-light container-fluid">
         <h4 class="card-title mt-3 text-center">Registration Complete</h4>
         <hr>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID Number</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Room Type</th>
+      <th scope="col">City</th>
+      <th scope="col">District</th>
+      <th scope="col">State</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Otto</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Otto</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      
+     
+      
+    </tr>
 
+  </tbody>
+</table>
     </div>
 </div>
 </body>
